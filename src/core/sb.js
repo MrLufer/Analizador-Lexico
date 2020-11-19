@@ -13,6 +13,7 @@ console.log(string)
         
       if (transitions[i].indexOf(char) !== -1) {
         //el caracter pertenece a una transicion
+        
         inputStatus = i + 1;
         break;
       } else if (i === transitions.length - 1 && transitions[i] === "_others") {
@@ -22,6 +23,7 @@ console.log(string)
     }
     //actuliza el estado 
     status = statusTable[status][inputStatus];
+    
   }
   //validamos que el estado final sea el designado
   return finalStatus.indexOf(status) !== -1 ? true : false;

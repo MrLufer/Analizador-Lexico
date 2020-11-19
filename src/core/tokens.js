@@ -28,7 +28,7 @@ export const TOKENS = [
       {
         "descripcion": "Operador <=",
         "token": 406,
-        "lexema": "Operador <="
+        "lexema": "<="
       },
       {
         "descripcion": "Operador >=",
@@ -76,7 +76,7 @@ export const TOKENS = [
         "lexema": "--"
       },
       {
-        "descripcion": "TIPO DE DATO CADENA",
+        "descripcion": "Operador ++",
         "token": 416,
         "lexema": "++"
       },
@@ -186,5 +186,10 @@ export const TOKENS = [
         "descripcion": "DELIMITADOR ]",
         "token": 506,
         "lexema": "]"
+      }
+      ,  {
+        "descripcion": "Termino ;",
+        "token": 508,
+        "lexema": ";"
       }
    ]

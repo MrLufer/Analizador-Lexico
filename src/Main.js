@@ -32,6 +32,7 @@ const Main = () => {
         let string = text;
         let result = analyzeString(string);
         let simbolArray = []
+
         result.map(token=>{
             if(token.type==1){
                let found =  searchToken(token.content)

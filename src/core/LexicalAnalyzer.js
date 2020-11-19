@@ -50,14 +50,17 @@ function isArithmeticOperator(string) {
 
 function isLogicalOperator(string) {
   let statusTable = [
-    [0, 0, 0],
-    [0, 2, 3],
-    [0, 0, 4],
-    [0, 0, 4],
-    [0, 0, 0],
+    [0, 0, 0, 0, 0],
+    [0, 2, 3, 5, 7],
+    [0, 0, 4, 0, 0],
+    [0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0],
+    [0, 0, 0, 6, 0],
+    [0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 4],
   ];
-  let finalStatus = [2, 4];
-  let transitions = [["!", ">", "<"], ["=","&","|"]];
+  let finalStatus = [2, 4, 6];
+  let transitions = [["!", ">", "<"], ["="], ["&"], ["|"]];
 
   return FakeAutomata({
     statusTable,
@@ -164,7 +167,6 @@ function analyzeWord(word) {
   }
 }
 
-
 function analyzeString(string) {
   let content = string.replace(/[\r\n]/g, "");
   let result = [];
@@ -183,7 +185,7 @@ function analyzeString(string) {
       result.push({
         type: analyzeWord(buffer),
         content: buffer,
-        key: result.length
+        key: result.length,
       });
       content = content.substring(index + 1);
     }
