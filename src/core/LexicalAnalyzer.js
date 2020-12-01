@@ -117,8 +117,31 @@ function isIntenger(string) {
   });
 }
 
+function isBase(string) {
+  let statusTable = [
+    [0, 0, 0, 0, 0,0],
+    [0, 0, 2, 2, 2,2],
+    [0, 3, 2, 2, 2,2],
+    [0, 0, 4, 4, 5,0],
+    [0, 0, 0, 0, 0,0],
+    [0, 0, 7, 0, 0,0],
+    [0, 0, 0, 0, 0,0],
+    [0, 0, 0, 0, 0,0],
+  ];
+  let finalStatus = [4,7];
+  let transitions = ["~", "4","7","1","0123456789"];
+
+  return FakeAutomata({
+    statusTable,
+    finalStatus,
+    transitions,
+    string,
+  });
+}
+
+
 function isConstant(string) {
-  return isUnsigned(string) || isIntenger(string);
+  return isUnsigned(string) || isIntenger(string) || isBase(string)
 }
 
 function isDelimiter(string) {

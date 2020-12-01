@@ -23,8 +23,9 @@ console.log(string)
     }
     //actuliza el estado 
     status = statusTable[status][inputStatus];
-    
+    console.log(status)
   }
+  
   //validamos que el estado final sea el designado
   return finalStatus.indexOf(status) !== -1 ? true : false;
 }
