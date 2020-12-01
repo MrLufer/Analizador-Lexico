@@ -34,6 +34,7 @@ const Main = () => {
         let simbolArray = []
 
         result.map(token=>{
+            
             if(token.type==1){
                let found =  searchToken(token.content)
                token.type = found.descripcion
@@ -55,8 +56,33 @@ const Main = () => {
                 token.key = 700
             }
             if(token.type == 5){
-                token.type = "NUMERO"
-                token.key = 600
+
+              
+                    token.type = "INTEGER"
+                    token.key = 600
+                
+
+                if(token.content.includes(".")){
+                    token.type = "DECIMAL"
+                    token.key = 601
+                }
+               
+                if(token.content.includes("~14")){
+                    token.content = token.content.slice(0,-3)
+                    token.type = "BASE 14"
+                    token.key = 604
+                }
+                if(token.content.includes("~7")){
+                    token.content = token.content.slice(0,-2)
+                    token.type = "BASE 7"
+                    token.key = 602
+                }
+                if(token.content.includes("~4")){
+                    token.content = token.content.slice(0,-2)
+                    token.type = "BASE 4"
+                    token.key = 603
+                }
+               
             }
         })
 
